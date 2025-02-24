@@ -1,0 +1,269 @@
+/*sections------------------------------------------------------------------- */
+body {
+    /*: rgb(227,229,245);
+    background: radial-gradient(circle, rgba(227,229,245,1) 42%, rgba(66,73,75,1) 100%);*/
+    background-color: #ffffff;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    
+    /*headings------------------------------------------------------------------- */
+    h1	{
+        font-family: 'Exo 2', sans-serif;
+        color: #000;
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+    h2 {
+      font-family: 'Exo 2', sans-serif;
+        color: #000;
+        font-size: 30px;
+        margin-left: 10px;
+
+    }
+/* Container----------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'EXO 2', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.banner {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  border: 1px solid black; /* Adding border around the entire banner */
+}
+
+.section-1 {
+  background-color: grey;
+  width: 20%;
+  height: 100%;
+  border: 1px solid black; /* Border around section-1 */
+  
+}
+
+.section-2 {
+  background-color: #335ccc;
+  width: 80%;
+  height: 100%;
+  border: 1px solid black; /* Border around section-2 */
+}
+
+.content {
+  display: flex;
+  height: calc(100vh - 150px); /* Adjusting the height for the content area */
+  border: 0px solid black; /* Border around the entire content area */
+}
+
+.sidebar {
+  width: 20%;
+  background-color: grey;
+  height: 100%;
+  border: 1px solid black; /* Border around the sidebar */
+}
+
+
+.main-content {
+  width: 80%;
+  background-color: white;
+  height: 100%;
+  border: 1px solid black; /* Border around the main content */
+}
+/* button -----------------------------------------------------*/
+.Account {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 80%;
+}
+
+.Account:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.CreateListing {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 80%;
+}
+
+.CreateListing:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Username-input {
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #fdfdfd;   /* Border color */
+  background-color: #335ccc;   /* Background color */
+  color: white;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:10px;
+  margin-left:10px;
+  width: 30%;
+}
+
+.Username-input:hover {
+  background-color: #294f99;   /* Darker background color on hover */
+  color: #fff;                  /* Keeps the text color white on hover */
+}
+
+.Username-input:active {
+  background-color: #243e75;   /* Even darker color when the button is pressed */
+}
+.Username-input::placeholder {
+  color: #fff;
+}
+
+.Password-input {
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #fdfdfd;   /* Border color */
+  background-color: #335ccc;   /* Background color */
+  color: white;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:10px;
+  margin-left:10px;
+  width: 30%;
+}
+
+.Password-input:hover {
+  background-color: #294f99;   /* Darker background color on hover */
+  color: #fff;                  /* Keeps the text color white on hover */
+}
+
+.Password-input:active {
+  background-color: #243e75;   /* Even darker color when the button is pressed */
+}
+.Password-input::placeholder {
+  color: #fff;
+}
+
+.rounded-button2 {
+  padding: 5px 25px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 40%;
+  position: static;
+}
+
+.rounded-button2:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+
+}.rounded-input2 {
+  width: 90%;
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #fdfdfd;   /* Border color */
+  background-color: #335ccc;   /* Background color */
+  color: white;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 25px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:30px;
+  margin-left:10px;
+  margin-right:10px;
+  
+
+}
+
+.rounded-input2:hover {
+  background-color: #294f99;   /* Darker background color on hover */
+  color: #fff;                  /* Keeps the text color white on hover */
+}
+
+.rounded-input2:active {
+  background-color: #243e75;   /* Even darker color when the button is pressed */
+}
+
+.rounded-input2::placeholder {
+  color: #fff;
+}
+
+/* Image Button ----------------------------------------------------- */
+.Image {
+  width: 5%;
+  background-color: #335DCD; /* Background color */
+  border: 2px solid #335DCD;
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+}
+
+.Image img {
+  height: 60px;   /* Adjust the image size */
+  width: 60px;    /* Adjust the image size */
+  vertical-align: middle;  /* Align the image vertically in the middle */
+}
+
+.Image:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
