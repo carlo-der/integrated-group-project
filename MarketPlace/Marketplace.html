@@ -23,11 +23,24 @@
 						<input type="text" class="Password-input" placeholder="Password">
 						<button2 class="rounded-button2">Login</button2>
 						<button2 class="rounded-button2">Register</button2>
-						<input type="text" class="rounded-input2" placeholder="Search bar">
+						<input type="text" class="searchbar-input" placeholder="Search bar">
+						
+					
+					<div class="popup" onclick="myFunction()">
 						<button class="Image">
 							<img src="settings_button.png" alt="Image Button">
 						</button>
-					</div>
+						<span class="popuptext" id="myPopup">A Simple Popup!</span>
+					  </div>
+					  
+					  <script>
+					  // When the user clicks on div, open the popup
+					  function myFunction() {
+						var popup = document.getElementById("myPopup");
+						popup.classList.toggle("show");
+					  }
+					  </script>
+					  </div>
 				</div>
 		
 				<div class="content">
