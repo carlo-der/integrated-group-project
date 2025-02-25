@@ -143,7 +143,8 @@ body {
   outline: none;               /* Removes the outline (default behavior on focus) */
   margin-top:10px;
   margin-left:10px;
-  width: 30%;
+  position: 1;
+  width: 38%;
 }
 
 .Username-input:hover {
@@ -172,7 +173,8 @@ body {
   outline: none;               /* Removes the outline (default behavior on focus) */
   margin-top:10px;
   margin-left:10px;
-  width: 30%;
+  position: 2;
+  width: 38%;
 }
 
 .Password-input:hover {
@@ -199,17 +201,16 @@ body {
   text-align: center;        /* Centers the text */
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
   margin-top: 10px;
-  margin-left: 2px;
-  margin-right: 2px;
-  width: 40%;
-  position: static;
+  margin-left: 10px;
+  position: 3;
+  
 }
 
 .rounded-button2:hover {
   background-color: #294f99; /* Darker background color on hover */
   color: #fff;               /* Keeps the text color white on hover */
 
-}.rounded-input2 {
+}.searchbar-input {
   width: 90%;
   padding: 5px 40px;          /* Space inside the button */
   border: 2px solid #fdfdfd;   /* Border color */
@@ -224,21 +225,20 @@ body {
   outline: none;               /* Removes the outline (default behavior on focus) */
   margin-top:30px;
   margin-left:10px;
-  margin-right:10px;
   
 
 }
 
-.rounded-input2:hover {
+.searchbar-input:hover {
   background-color: #294f99;   /* Darker background color on hover */
   color: #fff;                  /* Keeps the text color white on hover */
 }
 
-.rounded-input2:active {
+.searchbar-input:active {
   background-color: #243e75;   /* Even darker color when the button is pressed */
 }
 
-.rounded-input2::placeholder {
+.searchbar-input::placeholder {
   color: #fff;
 }
 
@@ -266,4 +266,61 @@ body {
 .Image:hover {
   background-color: #294f99; /* Darker background color on hover */
   color: #fff;               /* Keeps the text color white on hover */
+}
+/* Popup ****************************************************************************************/
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 80%; /* Adjust the width to cover most of the screen */
+  height: 80%; /* Adjust the height to cover most of the screen */
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: fixed;
+  top: 10%; /* Center the popup vertically */
+  left: 10%; /* Center the popup horizontally */
+  z-index: 1;
+  padding: 20px;
+  overflow: hidden; /* Ensure content is scrollable if it overflows */
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
