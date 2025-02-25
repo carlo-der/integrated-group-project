@@ -46,6 +46,16 @@ body {
   height: 150px;
   border: 1px solid black; /* Adding border around the entire banner */
 }
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-container > div {
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
 
 .section-1 {
   background-color: grey;
@@ -283,7 +293,7 @@ body {
   visibility: hidden;
   width: 80%; /* Adjust the width to cover most of the screen */
   height: 80%; /* Adjust the height to cover most of the screen */
-  background-color: #000;
+  background-color: #335DCD;
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -293,6 +303,9 @@ body {
   z-index: 1;
   padding: 20px;
   overflow: hidden; /* Ensure content is scrollable if it overflows */
+  border-width: 3px;
+  border-color: #000;
+  border-style: solid;
 }
 
 /* Popup arrow */
@@ -305,6 +318,49 @@ body {
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
+}
+
+.Settingsection1 {
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+
+}
+.Settingsection2 {
+ padding-top: 1%;
+ padding-bottom: 2.5%;
+ border-bottom-width: 3px;
+ border-bottom-color: #000;
+ border-bottom-style: solid;
+ text-align: left;
+ width: 100%;
+  
+}
+.Settingsection3 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+  text-align: left;
+  
+
+}
+.Settingsection4 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+  text-align: left;
+  
+}
+.Settingsection5 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  text-align: left;
+  
+
 }
 
 /* Toggle this class - hide and show the popup */
@@ -323,4 +379,272 @@ body {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+.Popupheading{
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Exo 2', sans-serif;
+  margin-bottom: 10px;
+  
+}
+.Saveditems {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+
+}
+
+.Saveditems:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Inbox {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+
+}
+
+.Inbox:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.Reviews {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.Reviews:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.RecentlyViewed {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.RecentlyViewed:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.Listings {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Listings1:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Accounts {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Account1:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Following {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Following:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Location {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Location:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Notifications {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Notifications:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Colourblind {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Colourblind:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Reader {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Reader:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
 }
