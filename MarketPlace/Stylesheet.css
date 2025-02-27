@@ -648,3 +648,69 @@ body {
   background-color: #294f99; /* Darker background color on hover */
   color: #fff;               /* Keeps the text color white on hover */
 }
+
+
+.item-card img {
+  width: 150px;
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 10px;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background-color: #f4f4f4;
+}
+
+
+.listings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.listing-card {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.listing-card:hover {
+  transform: scale(1.05);
+}
+
+.listing-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.listing-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.listing-card p {
+  font-size: 16px;
+  color: #333;
+}
+
+.view-details {
+  background-color: #335ccc;
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.view-details:hover {
+  background-color: #294f99;
+}
