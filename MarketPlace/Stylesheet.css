@@ -46,16 +46,6 @@ body {
   height: 150px;
   border: 1px solid black; /* Adding border around the entire banner */
 }
-.flex-container {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.flex-container > div {
-  margin: 10px;
-  padding: 20px;
-  font-size: 30px;
-}
 
 .section-1 {
   background-color: grey;
@@ -199,7 +189,7 @@ body {
   color: #fff;
 }
 
-.rounded-button2 {
+.Login {
   padding: 5px 25px;         /* Space inside the button */
   border: 2px solid #ffffff; /* Border color */
   background-color: #335ccc; /* Background color */
@@ -216,11 +206,33 @@ body {
   
 }
 
-.rounded-button2:hover {
+.Login:hover {
   background-color: #294f99; /* Darker background color on hover */
   color: #fff;               /* Keeps the text color white on hover */
-
-}.searchbar-input {
+}
+.Register {
+    padding: 5px 25px;         /* Space inside the button */
+    border: 2px solid #ffffff; /* Border color */
+    background-color: #335ccc; /* Background color */
+    color: white;              /* Text color */
+    font-size: 16px;           /* Font size */
+    font-family: 'Exo 2', sans-serif; /* Font style */
+    border-radius: 25px;       /* Rounded edges */
+    cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+    text-align: center;        /* Centers the text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+    margin-top: 10px;
+    margin-left: 10px;
+    position: 3;
+    
+  }
+  
+  .Register:hover {
+    background-color: #294f99; /* Darker background color on hover */
+    color: #fff;               /* Keeps the text color white on hover */
+  
+}
+.searchbar-input {
   width: 90%;
   padding: 5px 40px;          /* Space inside the button */
   border: 2px solid #fdfdfd;   /* Border color */
@@ -649,6 +661,7 @@ body {
   color: #fff;               /* Keeps the text color white on hover */
 }
 
+/*Main Content*/
 
 .item-card img {
   width: 150px;
