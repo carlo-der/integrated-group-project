@@ -1,0 +1,21 @@
+﻿In order to run the Web Application you need to have an Apache Web Server installed to your localhost. I did this using XAMPP, https://www.apachefriends.org/ .
+After installing XAMPP you will need to make sure in its control panel that the Apache web server is running as well as the MySQL Database.  
+
+
+Once both the web server and the database are running you need to navigate to your browser and type in: http://localhost/phpmyadmin/ . 
+This is the database set up page and click ‘new’. You will be taken to a create page for the database, name this Marketplace.
+  
+
+Once the Database is created click import in the top and there will be an option to upload a file. Here you need to upload the file Marketplace.sql.
+ Once it's uploaded click import and the database should be imported into phpmyadmin.
+  
+  
+
+ 
+Now you have the database configured you need to import the code for the project into XAMPP in order to run the code on your localhost. 
+
+
+To do this you need to take the folder for the code and import this into the ‘htdocs’ folder inside the XAMPP application you can do this by opening the folder and cloning the github repository into the folder, or copy and pasting the folder directly into htdocs.    
+
+
+Once the project folder is inside the htdocs folder in your browser you can navigate to: http://localhost/integrated-group-project/  and it will open the directory, or you can navigate directly to: http://localhost/integrated-group-project/MarketPlace/Marketplace.php

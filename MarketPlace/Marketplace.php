@@ -42,7 +42,7 @@ $result = $conn->query($query);
         <div class="content">
             <!-- Left Sidebar -->
             <div class="sidebar">
-			<a href ="">
+			<a href ="user_portal.php">
 						<button class="Account">Account</button>
 					</a>
 					<a href = "create_listing.php">
@@ -58,7 +58,7 @@ $result = $conn->query($query);
                         <div class="listing-card">
                             <img src="uploads/<?php echo $row['image']; ?>" alt="Item Image">
                             <h3><?php echo $row['title']; ?></h3>
-                            <p>$<?php echo $row['price']; ?></p>
+                            <p>£<?php echo $row['price']; ?></p>
                             <p>Seller: <?php echo $row['username']; ?></p>
                             <a href="item_details.php?id=<?php echo $row['item_id']; ?>" class="view-details">View Details</a>
                         </div>

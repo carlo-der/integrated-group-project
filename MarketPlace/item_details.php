@@ -28,7 +28,7 @@ $item = $result->fetch_assoc();
         <div class="item-detail">
             <img src="uploads/<?php echo $item['image']; ?>" alt="<?php echo $item['title']; ?>">
             <h3><?php echo $item['title']; ?></h3>
-            <p><strong>Price:</strong> $<?php echo $item['price']; ?></p>
+            <p><strong>Price:</strong> £<?php echo $item['price']; ?></p>
             <p><strong>Description:</strong> <?php echo $item['description']; ?></p>
             <p><strong>Seller:</strong> <?php echo $item['username']; ?></p>
         </div>
