@@ -42,25 +42,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link href="Normalize.css" rel="stylesheet">
-    <link href="Stylesheet.css" rel="stylesheet">
+    <link href="PasswordStylesheet.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h2>Register</h2>
+    <div class="banner">
+            <div class="Title">UniMarket Brighton</div>
+        </div>
+        <div class="main-content">
+            <div class="BoxTitle">Register to UniMarket Brighton</div>
         <form action="register.php" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
+            
+            <input for="username" type="text" name="username" class="username" placeholder="Username" required>
 
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
+            <input for="email" type="text" name="email" class="email" placeholder="Email" required>
 
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
+            
+            <input for="password" type="text" name="password" class="password" placeholder="Password" required>
 
-            <label for="address">Address:</label>
-            <input type="text" name="address">
+            <input for="address" type="text" name="Address" class="address" placeholder="Address" required>
 
-            <button type="submit">Register</button>
+            <button class="Register" type="submit">Register</button>
         </form>
     </div>
 </body>
