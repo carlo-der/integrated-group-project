@@ -1,0 +1,807 @@
+/*sections------------------------------------------------------------------- */
+body {
+    /*: rgb(227,229,245);
+    background: radial-gradient(circle, rgba(227,229,245,1) 42%, rgba(66,73,75,1) 100%);*/
+    background-color: #ffffff;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    
+    /*headings------------------------------------------------------------------- */
+    h1	{
+        font-family: 'Exo 2', sans-serif;
+        font-size: 30px;
+        line-height: 50px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        color: #335ccc;
+        text-align: center;
+       
+    }
+    h2 {
+      font-family: 'Exo 2', sans-serif;
+        color: #000;
+        font-size: 30px;
+        margin-left: 10px;
+
+    }
+    .main-title {
+      text-align: center;
+      color: #335ccc;
+    }
+/* Container----------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'EXO 2', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.banner {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  border: 0.5px solid #ced0d4; /* Adding border around the entire banner */
+}
+
+.section-1 {
+  background-color: white;
+  width: 20%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+
+.section-2 {
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
+}
+
+.content {
+  display: flex;
+  height: calc(100vh - 150px); /* Adjusting the height for the content area */
+  border: 0px solid black; /* Border around the entire content area */
+}
+
+.sidebar {
+  width: 20%;
+  background-color: white;
+  height: 100%;
+  border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
+}
+
+.main-content {
+  width: 80%;
+  background-color: #f0f2f5;
+  height: 100%;
+  
+}
+
+.bottombar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Adjust the height as necessary */
+  background-color: white;
+  border-top: 0.5px solid #ced0d4; /* Border at the top of the bottom bar */
+  display: flex;
+  
+}
+.section-3 {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+/* bottombar --------------------------------------------------*/
+.banner-text{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 15px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  color: #335ccc;
+  margin-left: 35%;
+  margin-right: 10%;
+
+}
+
+.Login-banner {
+  padding: 5px 25px;
+  border: 2px solid #ced0d4;
+  background-color: #335ccc;
+  color: white;
+  font-size: 26px;
+  font-family: 'Exo 2', sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 10%; /* Move it to the left side */
+  text-decoration: none;
+  width: 38%;
+}
+
+.Register-banner {
+  padding: 5px 25px;
+  border: 2px solid #ced0d4;
+  background-color: #335ccc;
+  color: white;
+  font-size: 26px;
+  font-family: 'Exo 2', sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 10%; /* Move it to the right side */
+  text-decoration: none;
+  width: 38%;
+}
+
+
+/* button -----------------------------------------------------*/
+.Account {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ced0d4; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 80%;
+}
+
+.Account:hover {
+  background-color: #ced0d4; /* Darker background color on hover */
+  color: black;               /* Keeps the text color white on hover */
+}
+
+.CreateListing {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ced0d4; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 80%;
+}
+
+.CreateListing:hover {
+  background-color: #ced0d4; /* Darker background color on hover */
+  color: black;               /* Keeps the text color white on hover */
+}
+
+.Username-input {
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #ced0d4;   /* Border color */
+  background-color: #ced0d4;   /* Background color */
+  color: black;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:10px;
+  margin-left:10px;
+  position: 1;
+  width: 38%;
+}
+
+.Username-input:hover {
+  background-color: #ced0d4;   /* Darker background color on hover */
+  color: black;                  /* Keeps the text color white on hover */
+}
+
+.Username-input:active {
+  background-color: #ced0d4;   /* Even darker color when the button is pressed */
+}
+.Username-input::placeholder {
+  color: black;
+}
+
+.Password-input {
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #ced0d4;   /* Border color */
+  background-color: #ced0d4;   /* Background color */
+  color: black;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:10px;
+  margin-left:10px;
+  position: 2;
+  width: 38%;
+}
+
+.Password-input:hover {
+  background-color: #ced0d4;   /* Darker background color on hover */
+  color: black;                  /* Keeps the text color white on hover */
+}
+
+.Password-input:active {
+  background-color: #ced0d4;   /* Even darker color when the button is pressed */
+}
+.Password-input::placeholder {
+  color: black;
+}
+
+.Login {
+  padding: 5px 25px;         /* Space inside the button */
+  border: 2px solid #ced0d4; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-left: 10px;
+  position: 3;
+  text-decoration: none;
+  
+  
+}
+
+.Login:hover {
+  background-color: #ced0d4; /* Darker background color on hover */
+  color: black;               /* Keeps the text color white on hover */
+}
+.Register {
+    padding: 5px 25px;         /* Space inside the button */
+    border: 2px solid #ced0d4; /* Border color */
+    background-color: #335ccc; /* Background color */
+    color: white;              /* Text color */
+    font-size: 16px;           /* Font size */
+    font-family: 'Exo 2', sans-serif; /* Font style */
+    border-radius: 10px;       /* Rounded edges */
+    cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+    text-align: center;        /* Centers the text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+    margin-top: 10px;
+    margin-left: 10px;
+    position: 3;
+    text-decoration: none;
+    
+  }
+  
+  .Register:hover {
+    background-color: #ced0d4; /* Darker background color on hover */
+    color: black;               /* Keeps the text color white on hover */
+  
+}
+.searchbar-input {
+  width: 90%;
+  padding: 5px 40px;          /* Space inside the button */
+  border: 2px solid #ced0d4;   /* Border color */
+  background-color: #ced0d4;   /* Background color */
+  color: black;                /* Text color */
+  font-size: 16px;             /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;         /* Rounded edges */
+  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
+  text-align: center;          /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  outline: none;               /* Removes the outline (default behavior on focus) */
+  margin-top:30px;
+  margin-left:10px;
+  
+
+}
+
+.searchbar-input:hover {
+  background-color: #ced0d4;   /* Darker background color on hover */
+  color: black;                  /* Keeps the text color white on hover */
+}
+
+.searchbar-input:active {
+  background-color: #ced0d4;   /* Even darker color when the button is pressed */
+}
+
+.searchbar-input::placeholder {
+  color: black;
+}
+
+/* Image Button ----------------------------------------------------- */
+.Image {
+  width: 5%;
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  border-color: white;
+  border-style: solid;
+}
+
+.Image img {
+  height: 60px;   /* Adjust the image size */
+  width: 60px;    /* Adjust the image size */
+  vertical-align: middle;  /* Align the image vertically in the middle */
+}
+
+
+/* Popup ****************************************************************************************/
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 80%; /* Adjust the width to cover most of the screen */
+  height: 80%; /* Adjust the height to cover most of the screen */
+  background-color: #335DCD;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: fixed;
+  top: 10%; /* Center the popup vertically */
+  left: 10%; /* Center the popup horizontally */
+  z-index: 1;
+  padding: 20px;
+  overflow: hidden; /* Ensure content is scrollable if it overflows */
+  border-width: 3px;
+  border-color: #000;
+  border-style: solid;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.Settingsection1 {
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+
+}
+.Settingsection2 {
+ padding-top: 1%;
+ padding-bottom: 2.5%;
+ border-bottom-width: 3px;
+ border-bottom-color: #000;
+ border-bottom-style: solid;
+ text-align: left;
+ width: 100%;
+  
+}
+.Settingsection3 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+  text-align: left;
+  
+
+}
+.Settingsection4 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  border-bottom-width: 3px;
+  border-bottom-color: #000;
+  border-bottom-style: solid;
+  text-align: left;
+  
+}
+.Settingsection5 {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  text-align: left;
+  
+
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.Popupheading{
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Exo 2', sans-serif;
+  margin-bottom: 10px;
+  
+}
+.Saveditems {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+
+}
+
+.Saveditems:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Inbox {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+
+}
+
+.Inbox:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.Reviews {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.Reviews:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.RecentlyViewed {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.RecentlyViewed:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+.Listings {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Listings1:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Accounts {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Account1:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Following {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Following:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Location {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Location:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Notifications {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Notifications:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Colourblind {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Colourblind:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+.Reader {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ffffff; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 20px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 5px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 20%;
+  height: 40px;
+  margin-right: 20px;
+
+}
+
+.Reader:hover {
+  background-color: #294f99; /* Darker background color on hover */
+  color: #fff;               /* Keeps the text color white on hover */
+}
+
+/*Main Content*/
+
+.item-card img {
+  width: 150px;
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 10px;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background-color: #f4f4f4;
+}
+
+
+.listings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.listing-card {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.listing-card:hover {
+  transform: scale(1.05);
+}
+
+.listing-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.listing-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.listing-card p {
+  font-size: 16px;
+  color: #333;
+}
+
+.view-details {
+  background-color: #335ccc;
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.view-details:hover {
+  background-color: #294f99;
+}
