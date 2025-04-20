@@ -2,7 +2,7 @@
 body {
     /*: rgb(227,229,245);
     background: radial-gradient(circle, rgba(227,229,245,1) 42%, rgba(66,73,75,1) 100%);*/
-    background-color: #ffffff;
+    background-color: #ff0000;
       font-family: 'Exo 2', sans-serif;
       font-size: 20px;
       line-height: 30px;
@@ -39,7 +39,6 @@ body {
 
 body {
   font-family: 'EXO 2', sans-serif;
-  
 }
 
 .container {
@@ -63,15 +62,6 @@ body {
   color: #335ccc;
   
 }
-.section-1[data-theme='dark'] {
-  background-color: black;
-  width: 20%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
-  text-align: center;
-  color: #335ccc;
-  
-}
 
 .section-2 {
   background-color: white;
@@ -79,12 +69,7 @@ body {
   height: 100%;
   border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
 }
-.section-2[data-theme='dark']{
-  background-color: black;
-  width: 80%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
-}
+
 .content {
   display: flex;
   height: calc(100vh - 150px); /* Adjusting the height for the content area */
@@ -97,26 +82,35 @@ body {
   height: 100%;
   border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
 }
-.sidebar[data-theme='dark']{
-  width: 20%;
-  background-color: black;
-  height: 100%;
-  border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
-}
 
 /* Container for the main content */
+
+
 .main-content {
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  
+  width: 80%;
+  display: grid;
+  column-gap: 50px;
   
 }
-.main-content[data-them='dark'] {
+
+.container1 {
+  display: grid;
+  row-gap: 50px;
+  grid-template-columns: auto auto;
+  background-color: dodgerblue;
+
+}
+
+.container1 > div {
+  background-color: #f1f1f1;
   width: 100%;
-  height: 100%;
-  text-decoration: none;
+  padding: 10px;
+  
+}
+.container1[data-theme='dark'] > div {
   background-color: black;
+  width: 100%;
+  padding: 10px;
   
 }
 
@@ -132,30 +126,8 @@ body {
   display: flex;
   
 }
-
-.bottombar[data-theme='dark']{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px; /* Adjust the height as necessary */
-  background-color: white;
-  border-top: 0.5px solid #ced0d4; /* Border at the top of the bottom bar */
-  display: flex;
-  
-}
 .section-3 {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
-  text-align: center;
-  color: #335ccc;
-  
-}
-
-.section-3[data-theme='dark']{
-  background-color: black;
+  background-color: rgb(0, 255, 17);
   width: 100%;
   height: 100%;
   border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
@@ -442,23 +414,6 @@ body {
   position: 1;
   width: 38%;
 }
-.Username-input {
-  padding: 5px 40px;          /* Space inside the button */
-  border: 2px solid #ced0d4;   /* Border color */
-  background-color: #ced0d4;   /* Background color */
-  color: black;                /* Text color */
-  font-size: 16px;             /* Font size */
-  font-family: 'Exo 2', sans-serif; /* Font style */
-  border-radius: 10px;         /* Rounded edges */
-  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
-  text-align: center;          /* Centers the text */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
-  outline: none;               /* Removes the outline (default behavior on focus) */
-  margin-top:10px;
-  margin-left:10px;
-  position: 1;
-  width: 38%;
-}
 
 .Username-input:hover {
   background-color: #ced0d4;   /* Darker background color on hover */
@@ -549,7 +504,7 @@ body {
   
 }
 .searchbar-input {
-  width: 50%;
+  width: 90%;
   padding: 5px 40px;          /* Space inside the button */
   border: 2px solid #ced0d4;   /* Border color */
   background-color: #ced0d4;   /* Background color */
@@ -562,8 +517,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
   outline: none;               /* Removes the outline (default behavior on focus) */
   margin-top:30px;
-  margin-left:15%;
-  
+  margin-left:10px;
   
 
 }
@@ -580,53 +534,37 @@ body {
 .searchbar-input::placeholder {
   color: black;
 }
-.search-button {
-  padding: 5px 20px;         /* Space inside the button */
-  border: 2px solid #ffffff; /* Border color */
-  background-color: #335ccc; /* Background color */
-  color: white;              /* Text color */
-  font-size: 16px;           /* Font size */
-  font-family: 'Exo 2', sans-serif; /* Font style */
-  border-radius: 15px;       /* Rounded edges */
-  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
-  text-align: center;        /* Centers the text */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
-  margin-top: 10px;
-  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
-  width: 10%;
-  height: 35px;
-  
-
-}
 
 /* Image Button ----------------------------------------------------- */
 .Image {
+  width: 5%;
   font-size: 16px;           /* Font size */
   font-family: 'Exo 2', sans-serif; /* Font style */
   cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
   text-align: center;        /* Centers the text */
-  background-color: white;
+  margin-top: 10px;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
   border-color: white;
-  border-style: none;
-
+  border-style: solid;
 }
-
-
-
 
 .Image img {
   height: 60px;   /* Adjust the image size */
   width: 60px;    /* Adjust the image size */
-  
+  vertical-align: middle;  /* Align the image vertically in the middle */
 }
 
 
 /* Popup ****************************************************************************************/
 .popup {
-  margin-left: 90%;
-  display: inline-block; /* Or you can use display: inline; depending on your needs */
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 
 /* The actual popup */
 .popup .popuptext {
@@ -1002,11 +940,6 @@ body {
   font-family: 'Exo 2', sans-serif;
   background-color: #f4f4f4;
 }
-body[data-theme='dark']{
-  font-family: 'Exo 2', sans-serif;
-  background-color: black;
-}
-
 
 
 .listings-container {
@@ -1023,15 +956,6 @@ body[data-theme='dark']{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s;
-  border-left: white;
-}
-.listing-card[data-theme='dark'] {
-  background-color: black;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s;
 }
 
 .listing-card:hover {
@@ -1040,7 +964,7 @@ body[data-theme='dark']{
 
 .listing-card img {
   width: 100%;
-  height: 200px;
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -1049,19 +973,10 @@ body[data-theme='dark']{
   font-size: 18px;
   margin: 10px 0;
 }
-.listing-card h3[data-theme='dark'] {
-  font-size: 18px;
-  margin: 10px 0;
-  color: white;
-}
 
 .listing-card p {
   font-size: 16px;
   color: #333;
-}
-.listing-card p[data-theme='dark'] {
-  font-size: 16px;
-  color: white;
 }
 
 .view-details {
@@ -1073,10 +988,110 @@ body[data-theme='dark']{
   cursor: pointer;
   font-size: 14px;
   text-align: center;
-  text-decoration: none;
 }
 
 .view-details:hover {
   background-color: #294f99;
 }
 
+.maincontentbox1{
+  font-size: 25px;
+  text-align: left;
+
+}
+
+
+.maincontentimage{
+  width:100%;
+
+}
+
+.contentbar {
+  position: fixed;
+  bottom: 0;
+  left: 20%;                  /* The bar will start from 20% from the left */
+  width: 80%;                 /* Makes the width 80% of the screen width */
+  height: 100px;              /* Height of the bar */
+  display: flex;
+  align-items: center;        /* Vertically centers the content inside the bar */
+  justify-content: center;    /* Horizontally centers the content inside the bar */
+  color: white;               /* Text color */
+  padding: 0 20px;            /* Optional padding inside the bar */
+}
+.enquirenow {
+  padding: 10px 100px;         /* Space inside the button */
+  border: 2px solid green;   /* Border color */
+  background-color: green;   /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: center;        /* Centers the text */
+  text-decoration: none;
+  
+}
+
+.enquirenow:hover {
+  background-color: darkgreen; /* Darker green when hovered */
+  color: #fff;                /* Keep text color white on hover */
+}
+
+.main-content[data-them='dark'] {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background-color: black;
+  
+}
+
+
+.bottombar[data-theme='dark']{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Adjust the height as necessary */
+  background-color: white;
+  border-top: 0.5px solid #ced0d4; /* Border at the top of the bottom bar */
+  display: flex;
+  
+}
+
+.section-3[data-theme='dark']{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+
+.sidebar[data-theme='dark']{
+  width: 20%;
+  background-color: black;
+  height: 100%;
+  border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
+}
+
+.section-2[data-theme='dark']{
+  background-color: black;
+  width: 80%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
+}
+
+.section-1[data-theme='dark'] {
+  background-color: black;
+  width: 20%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+
+.maincontentbox1[data-theme='dark']{
+  color: white;
+}

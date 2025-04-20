@@ -1,52 +1,56 @@
 <?php
-require_once('config.php');
-session_start(); // Start the session to access session variables
+session_start();
+include 'config.php'; // Ensure this connects to MySQL
 
-// Get search query if exists
-$searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
-
-// Prepare SQL query
-$query = "SELECT items.*, users.username FROM items INNER JOIN users ON items.seller_id = users.user_id";
-
-// Modify query if search term is provided
-if (!empty($searchQuery)) {
-    $searchQuery = $conn->real_escape_string($searchQuery); // Sanitize input
-    // Search for items whose title matches the search query exactly
-    $query .= " WHERE items.title LIKE '%$searchQuery%'"; // Use LIKE for partial match
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    die("You must be logged in to send messages.");
 }
 
-$result = $conn->query($query);
 
-// Check for query errors
-if (!$result) {
-    die("Query failed: " . $conn->error);
-}
+// Get logged-in user's ID and username
+$user_id = $_SESSION['user_id'];
+
+// Fetch messages where the user is either sender or receiver
+$sql = "SELECT m.*, 
+               sender.username AS sender_name, 
+               receiver.username AS receiver_name
+        FROM inbox m
+        JOIN users sender ON m.sender_id = sender.user_id
+        JOIN users receiver ON m.receiver_id = receiver.user_id
+        WHERE m.receiver_id = ? OR m.sender_id = ?
+        ORDER BY m.timestamp DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ii", $user_id, $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- default language of the document content -->
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> <!-- character encoding for the document (Unicode) -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MarketPlace</title>
-    <link href="Normalize.css" rel="stylesheet">
-    <link href="Stylesheet.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Saved</title> <!-- web page title -->
+    <link href="Normalize.css" rel="stylesheet"> <!-- Normalize CSS -->
+    <link href="inbox.css" rel="stylesheet"> <!-- Custom styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Google font -->
 </head>
 <body>
     <div class="container">
+        <!-- Banner Section -->
         <div class="banner">
             <div class="section-1">
-                <h1>UniMarket Brighton</h1>
-            </div>
+				<h1>UniMarket Brighton</h1>
+                
+			</div>
             <div class="section-2">
-                <!-- Search Bar Form -->
-                <form method="GET" action="Marketplace.php"> <!-- Adjust action to the correct page if needed -->
-                    <input type="text" name="search" class="searchbar-input" placeholder="Search items..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-                    <button type="submit" class="search-button">Search</button>
-                </form>
+            <h1>Inbox</h1>
 
-        
                 <div class="popup" onclick="myFunction()">
                     <button class="Image">
                         <img src="settings_button1.png" alt="Image Button">
@@ -80,13 +84,14 @@ if (!$result) {
                         <div class="Settingsection5">
                             <div class="popupheading"> Accessibility </div>
                             <div class="flex-container">
-                                <button  class="Colourblind">Colourblind filter</button>
+                                <button class="Colourblind">Colourblind filter</button>
                                 <button class="Reader">Reader</button>
                             </div>
                         </div>
                     </span>
                 </div>
 
+                
                 <script>
                     // Toggle popup function
                     function myFunction() {
@@ -111,41 +116,43 @@ if (!$result) {
         </div>
 
         <div class="content">
+            <!-- Left Sidebar -->
             <div class="sidebar">
+            <a href="Marketplace.php"><button class="Marketplace">Home</button></a>
                 <a href="account.php"><button class="Account">Account</button></a>
                 <a href="create_listing.php"><button class="CreateListing">Create Listing</button></a>
                 <a href="your_listing.php"><button class="YourListing">Your listings</button></a>
-                <!-- <a href="saved.php"><button class="Savedside">Saved</button></a>
-                <a href="recently_viewed.php"><button class="RecentlyViewedside">Recently Viewed</button></a> -->
-                <a href="inbox.php"><button class="Inboxside">Inbox</button></a>
+               <!-- <a href="recently_viewed.php"><button class="RecentlyViewedside">Recently Viewed</button></a> -->
                 <a href="enquirenow.php"><button class="Reviewsside">Message</button></a>
-                <!-- <a href="reviews.php"><button class="Reviewsside">Reviews</button></a> -->
+                <!--<a href="reviews.php"><button class="Reviewsside">Reviews</button></a>-->
                 <button onclick="Darkmode()"class="Settingsside">Settings</button></a>
             </div>
 
+            <!-- Main Content with Listings -->
             <div class="main-content">
-                <div class="listings-container">
-                    <?php while ($row = $result->fetch_assoc()) { ?>
-                        <div class="listing-card">
-                            <img src="uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="Item Image">
-                            <h3><?php echo htmlspecialchars($row['title']); ?></h3>
-                            <p>£<?php echo htmlspecialchars($row['price']); ?></p>
-                            <p>Seller: <?php echo htmlspecialchars($row['username']); ?></p>
-                            <a href="item_details.php?id=<?php echo $row['item_id']; ?>" class="view-details">View Details</a>
-                        </div>
-                    <?php } ?>
-                </div>
+            <h2>Your Messages</h2>
+            <br>
+    
+    <?php while ($row = $result->fetch_assoc()): ?>
+        <p>
+            <strong>From: <?php echo htmlspecialchars($row['sender_name']); ?></strong>  
+            <br> 
+            <strong>To: <?php echo htmlspecialchars($row['receiver_name']); ?></strong>
+            <br>
+            <?php echo nl2br(htmlspecialchars($row['message'])); ?>  
+            <br>
+            <small><?php echo $row['timestamp']; ?></small>
+            <br>
+            <a href="enquirenow.php"><button class="Reply">Reply</button></a>
+            <br>
+        </p>
+        <hr>
+    <?php endwhile; ?>
+    
+               
             </div>
 
-            <?php if (!isset($_SESSION['user_id'])) { // Check if the user is logged in ?>
-            <div class="bottombar">
-                <div class="section-3">
-                    <div class="banner-text">Sign up or log in today to start buying and selling with ease!</div>
-                    <a href="login.php" class="Login-banner">Login</a>
-                    <a href="register.php" class="Register-banner">Register</a>
-                </div>
             </div>
-            <?php } ?>
         </div>
     </div>
 </body>

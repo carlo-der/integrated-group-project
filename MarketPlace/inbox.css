@@ -10,20 +10,22 @@ body {
     
     /*headings------------------------------------------------------------------- */
     h1	{
-        font-family: 'Exo 2', sans-serif;
-        font-size: 30px;
-        line-height: 50px;
-        margin-bottom: 20px;
-        margin-left: 10px;
-        color: #335ccc;
-        text-align: center;
-       
-    }
+      font-family: 'Exo 2', sans-serif;
+      font-size: 30px;
+      line-height: 50px;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      color: #335ccc;
+      text-align: center;
+     
+  }
+ 
     h2 {
       font-family: 'Exo 2', sans-serif;
         color: #000;
         font-size: 30px;
         margin-left: 10px;
+        text-align: center;
 
     }
     .main-title {
@@ -39,7 +41,6 @@ body {
 
 body {
   font-family: 'EXO 2', sans-serif;
-  
 }
 
 .container {
@@ -63,15 +64,6 @@ body {
   color: #335ccc;
   
 }
-.section-1[data-theme='dark'] {
-  background-color: black;
-  width: 20%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
-  text-align: center;
-  color: #335ccc;
-  
-}
 
 .section-2 {
   background-color: white;
@@ -79,12 +71,7 @@ body {
   height: 100%;
   border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
 }
-.section-2[data-theme='dark']{
-  background-color: black;
-  width: 80%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
-}
+
 .content {
   display: flex;
   height: calc(100vh - 150px); /* Adjusting the height for the content area */
@@ -97,26 +84,13 @@ body {
   height: 100%;
   border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
 }
-.sidebar[data-theme='dark']{
-  width: 20%;
-  background-color: black;
-  height: 100%;
-  border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
-}
 
 /* Container for the main content */
 .main-content {
   width: 100%;
-  height: 100%;
-  text-decoration: none;
-  
-  
-}
-.main-content[data-them='dark'] {
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  background-color: black;
+  height: 150px;
+  margin-left: 1%;
+  margin-right: 1%;
   
 }
 
@@ -132,30 +106,8 @@ body {
   display: flex;
   
 }
-
-.bottombar[data-theme='dark']{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px; /* Adjust the height as necessary */
-  background-color: white;
-  border-top: 0.5px solid #ced0d4; /* Border at the top of the bottom bar */
-  display: flex;
-  
-}
 .section-3 {
   background-color: white;
-  width: 100%;
-  height: 100%;
-  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
-  text-align: center;
-  color: #335ccc;
-  
-}
-
-.section-3[data-theme='dark']{
-  background-color: black;
   width: 100%;
   height: 100%;
   border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
@@ -442,23 +394,6 @@ body {
   position: 1;
   width: 38%;
 }
-.Username-input {
-  padding: 5px 40px;          /* Space inside the button */
-  border: 2px solid #ced0d4;   /* Border color */
-  background-color: #ced0d4;   /* Background color */
-  color: black;                /* Text color */
-  font-size: 16px;             /* Font size */
-  font-family: 'Exo 2', sans-serif; /* Font style */
-  border-radius: 10px;         /* Rounded edges */
-  cursor: pointer;            /* Makes the mouse cursor a pointer on hover */
-  text-align: center;          /* Centers the text */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
-  outline: none;               /* Removes the outline (default behavior on focus) */
-  margin-top:10px;
-  margin-left:10px;
-  position: 1;
-  width: 38%;
-}
 
 .Username-input:hover {
   background-color: #ced0d4;   /* Darker background color on hover */
@@ -549,7 +484,7 @@ body {
   
 }
 .searchbar-input {
-  width: 50%;
+  width: 90%;
   padding: 5px 40px;          /* Space inside the button */
   border: 2px solid #ced0d4;   /* Border color */
   background-color: #ced0d4;   /* Background color */
@@ -562,8 +497,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
   outline: none;               /* Removes the outline (default behavior on focus) */
   margin-top:30px;
-  margin-left:15%;
-  
+  margin-left:10px;
   
 
 }
@@ -579,24 +513,6 @@ body {
 
 .searchbar-input::placeholder {
   color: black;
-}
-.search-button {
-  padding: 5px 20px;         /* Space inside the button */
-  border: 2px solid #ffffff; /* Border color */
-  background-color: #335ccc; /* Background color */
-  color: white;              /* Text color */
-  font-size: 16px;           /* Font size */
-  font-family: 'Exo 2', sans-serif; /* Font style */
-  border-radius: 15px;       /* Rounded edges */
-  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
-  text-align: center;        /* Centers the text */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
-  margin-top: 10px;
-  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
-  width: 10%;
-  height: 35px;
-  
-
 }
 
 /* Image Button ----------------------------------------------------- */
@@ -659,6 +575,7 @@ body {
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
+
 
 .Settingsection1 {
   border-bottom-width: 3px;
@@ -1002,11 +919,6 @@ body {
   font-family: 'Exo 2', sans-serif;
   background-color: #f4f4f4;
 }
-body[data-theme='dark']{
-  font-family: 'Exo 2', sans-serif;
-  background-color: black;
-}
-
 
 
 .listings-container {
@@ -1023,15 +935,6 @@ body[data-theme='dark']{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s;
-  border-left: white;
-}
-.listing-card[data-theme='dark'] {
-  background-color: black;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s;
 }
 
 .listing-card:hover {
@@ -1040,7 +943,7 @@ body[data-theme='dark']{
 
 .listing-card img {
   width: 100%;
-  height: 200px;
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -1049,19 +952,10 @@ body[data-theme='dark']{
   font-size: 18px;
   margin: 10px 0;
 }
-.listing-card h3[data-theme='dark'] {
-  font-size: 18px;
-  margin: 10px 0;
-  color: white;
-}
 
 .listing-card p {
   font-size: 16px;
   color: #333;
-}
-.listing-card p[data-theme='dark'] {
-  font-size: 16px;
-  color: white;
 }
 
 .view-details {
@@ -1073,10 +967,90 @@ body[data-theme='dark']{
   cursor: pointer;
   font-size: 14px;
   text-align: center;
-  text-decoration: none;
 }
 
 .view-details:hover {
   background-color: #294f99;
 }
 
+.Reply {
+  padding: 5px 40px;         /* Space inside the button */
+  border: 2px solid #ced0d4; /* Border color */
+  background-color: #335ccc; /* Background color */
+  color: white;              /* Text color */
+  font-size: 16px;           /* Font size */
+  font-family: 'Exo 2', sans-serif; /* Font style */
+  border-radius: 10px;       /* Rounded edges */
+  cursor: pointer;          /* Makes the mouse cursor a pointer on hover */
+  text-align: left;        /* Centers the text */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
+  margin-right: 10%;
+  white-space: nowrap;       /* Prevents text from wrapping onto a new line */
+  width: 10%;
+}
+
+.Reply:hover {
+  background-color: #ced0d4; /* Darker background color on hover */
+  color: black;               /* Keeps the text color white on hover */
+}
+
+.main-content[data-them='dark'] {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background-color: black;
+  
+}
+
+
+.bottombar[data-theme='dark']{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Adjust the height as necessary */
+  background-color: white;
+  border-top: 0.5px solid #ced0d4; /* Border at the top of the bottom bar */
+  display: flex;
+  
+}
+
+.section-3[data-theme='dark']{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+
+.sidebar[data-theme='dark']{
+  width: 20%;
+  background-color: black;
+  height: 100%;
+  border-right: 0.5px solid #ced0d4; /* Border around the sidebar */
+}
+
+.section-2[data-theme='dark']{
+  background-color: black;
+  width: 80%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-2 */
+}
+
+.section-1[data-theme='dark'] {
+  background-color: black;
+  width: 20%;
+  height: 100%;
+  border-bottom: 0.5px solid #ced0d4; /* Border around section-1 */
+  text-align: center;
+  color: #335ccc;
+  
+}
+
+body[data-theme='dark'] {
+  background-color: black;
+  color: white;
+}
