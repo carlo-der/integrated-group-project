@@ -221,6 +221,13 @@ body {
   margin-bottom: 10px;
 }
 
+.CreateListing_Banner{
+      font-family: 'Exo 2', sans-serif;
+        color: #335ccc;
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
 
 /* button -----------------------------------------------------*/
 .Account {
