@@ -1,25 +1,54 @@
 <?php
+
+
+session_start();
+if (!isset($_SESSION['user_id'])){
+    header("Location: login.php");
+    exit();
+}
+
 require_once('config.php');
 
-$item_id = $_GET['id'];
+// Get items and user info
+$query = "SELECT items.*, users.username FROM items INNER JOIN users ON items.seller_id = users.user_id";
+$result = $conn->query($query);
 
-//getting the item details
-$query = "SELECT items.*, users.username FROM items INNER JOIN users ON items.seller_id = users.user_id WHERE items.item_id = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $item_id);
+// Check for query errors
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
+
+
+// Get logged-in user's ID and username
+$user_id = $_SESSION['user_id'];
+
+// Fetch messages where the user is either sender or receiver
+$sql = "SELECT m.*, 
+               sender.username AS sender_name, 
+               receiver.username AS receiver_name
+        FROM inbox m
+        JOIN users sender ON m.sender_id = sender.user_id
+        JOIN users receiver ON m.receiver_id = receiver.user_id
+        WHERE m.receiver_id = ? OR m.sender_id = ?
+        ORDER BY m.timestamp DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ii", $user_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$item = $result->fetch_assoc();
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en"> <!-- default language of the document content -->
 <head>
     <meta charset="utf-8"> <!-- character encoding for the document (Unicode) -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>itemdetails</title> <!-- web page title -->
+    <title>Saved</title> <!-- web page title -->
     <link href="Normalize.css" rel="stylesheet"> <!-- Normalize CSS -->
-    <link href="Itemdetails.css" rel="stylesheet"> <!-- Custom styles -->
+    <link href="inbox.css" rel="stylesheet"> <!-- Custom styles -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Google font -->
 </head>
 <body>
@@ -31,11 +60,8 @@ $item = $result->fetch_assoc();
                 
 			</div>
             <div class="section-2">
-                <h1>Item details</h1>
-                
+            <h1>Inbox</h1>
 
-
-                
             </div>
         </div>
 
@@ -45,8 +71,8 @@ $item = $result->fetch_assoc();
             <a href="Marketplace.php"><button class="Marketplace">Home</button></a>
                 <a href="create_listing.php"><button class="CreateListing">Create Listing</button></a>
                 <a href="your_listing.php"><button class="YourListing">Your listings</button></a>
-                <a href="inbox.php"><button class="Inboxside">Inbox</button></a>
-                <a href="enquirenow.php"><button class="Inboxside">Message</button></a>
+               <!-- <a href="recently_viewed.php"><button class="RecentlyViewedside">Recently Viewed</button></a> -->
+                <a href="enquirenow.php"><button class="Reviewsside">Message</button></a>
                 <button onclick="myFunction()" class="Settingsside">Settings</button>
                 <div id="myPopup" class="popup">
                     <span>
@@ -135,43 +161,40 @@ $item = $result->fetch_assoc();
 
 
             </div>
+
             
-            <!-- Main Content with Listings 
-            
-    <div class="item-detail">
-      
-                -->
-                <div class="main-content">
-                <div class="container1">
-                <div class ="content1">
-                <div class = "maincontentbox1">
-            <h3><?php echo $item['title']; ?></h3><br>
-            <p><strong>Price:</strong> £<?php echo $item['price']; ?></p><br>
-            <p><strong>Description:</strong> <?php echo $item['description']; ?></p><br>
-            <p><strong>Seller:</strong> <?php echo $item['username']; ?></p>
-            </div>
-            </div>
-            <div class = "maincontentbox1">
-            <div class ="content2">
-            <img class = "maincontentimage" src="uploads/<?php echo $item['image']; ?>" alt="<?php echo $item['title'];  ?>">
-            </div>
-            </div>
-             
-            </div>
-            <div class="contentbar">
-                <div> <a href="enquirenow.php" class="enquirenow">Enquire now</a></div>
-                   
-                </div>
-            </div>
-            </div>
+            <!-- Main Content with Listings -->
+            <div class="main-content">
+            <h2>Your Messages</h2>
+            <br>
+    
+    <?php while ($row = $result->fetch_assoc()): ?>
+        <p>
+            <strong>From: <?php echo htmlspecialchars($row['sender_name']); ?></strong>  
+            <br> 
+            <strong>To: <?php echo htmlspecialchars($row['receiver_name']); ?></strong>
+            <br>
+            <?php echo nl2br(htmlspecialchars($row['message'])); ?>  
+            <br>
+            <small><?php echo $row['timestamp']; ?></small>
+            <br>
+            <br>
+            <a href="enquirenow.php"><button class="Reply">Reply</button></a>
+            <br>
+        </p>
+        <hr>
+    <?php endwhile; ?>
+    
+               
             </div>
 
             </div>
         </div>
     </div>
-
     
-               <script>
+  
+                
+  <script>
                     // Toggle popup function
                   // Toggle popup function
 function myFunction() {
@@ -210,7 +233,7 @@ document.addEventListener('click', function(event) {
 
  
     function Darkmode() {
-        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image, .container1');
+        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image');
         var isDark = localStorage.getItem('theme') === 'dark';
 
         elements.forEach(function(element) {
@@ -226,7 +249,7 @@ document.addEventListener('click', function(event) {
     // Apply theme on page load
     window.onload = function() {
         var theme = localStorage.getItem('theme') || 'light'; // Default to light
-        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image, .container1');
+        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image');
 
         elements.forEach(function(element) {
             element.setAttribute('data-theme', theme);
@@ -239,4 +262,3 @@ document.addEventListener('click', function(event) {
 </script>
 </body>
 </html>
-

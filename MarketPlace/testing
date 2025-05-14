@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        /* Simple popup styling */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #000;
+            z-index: 1000;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<form id="registerForm" action="register.php" method="POST">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="text" name="email" placeholder="Email" required><br>
+    <input type="text" name="password" placeholder="Password" required><br>
+    <input type="text" name="address" placeholder="Address" required><br>
+    <button type="button" onclick="showPopup()">Register</button>
+</form>
+
+<!-- Overlay and Popup -->
+<div id="overlay"></div>
+<div id="popup">
+    <p>By clicking agree, you accept our Terms and Conditions.</p>
+    <button onclick="submitForm()">I Agree</button>
+    <button onclick="hidePopup()">Cancel</button>
+</div>
+
+<script>
+function showPopup() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
+}
+
+function hidePopup() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+}
+
+function submitForm() {
+    document.getElementById('registerForm').submit();
+}
+</script>
+
+</body>
+</html>

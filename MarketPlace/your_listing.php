@@ -1,25 +1,64 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 require_once('config.php');
 
-$item_id = $_GET['id'];
+$user_id = $_SESSION['user_id'];
 
-//getting the item details
-$query = "SELECT items.*, users.username FROM items INNER JOIN users ON items.seller_id = users.user_id WHERE items.item_id = ?";
+// Only get listings created by the logged-in user
+$query = "SELECT items.*, users.username 
+          FROM items 
+          INNER JOIN users ON items.seller_id = users.user_id 
+          WHERE items.seller_id = ?";
+
 $stmt = $conn->prepare($query);
-$stmt->bind_param("i", $item_id);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$item = $result->fetch_assoc();
+
+// Handle listing removal if a POST request was made
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
+    $item_id = intval($_POST['item_id']);
+    $user_id = $_SESSION['user_id'];
+
+    // Delete only if the item belongs to the logged-in user
+    $delete_query = "DELETE FROM items WHERE item_id = ? AND seller_id = ?";
+    $delete_stmt = $conn->prepare($delete_query);
+    if ($delete_stmt) {
+        $delete_stmt->bind_param("ii", $item_id, $user_id);
+        $delete_stmt->execute();
+        $delete_stmt->close();
+
+        // Optional: redirect to prevent form resubmission
+        header("Location: your_listing.php");
+        exit();
+    } else {
+        die("Delete prepare failed: " . $conn->error);
+    }
+}
+
+// Check for query errors
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
+
+
+// Now you can loop through $result to show the user's listings
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en"> <!-- default language of the document content -->
 <head>
     <meta charset="utf-8"> <!-- character encoding for the document (Unicode) -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>itemdetails</title> <!-- web page title -->
+    <title>your listing.</title> <!-- web page title -->
     <link href="Normalize.css" rel="stylesheet"> <!-- Normalize CSS -->
-    <link href="Itemdetails.css" rel="stylesheet"> <!-- Custom styles -->
+    <link href="Stylesheet.css" rel="stylesheet"> <!-- Custom styles -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Google font -->
 </head>
 <body>
@@ -31,9 +70,7 @@ $item = $result->fetch_assoc();
                 
 			</div>
             <div class="section-2">
-                <h1>Item details</h1>
-                
-
+                <h1>Your Listings</h1>
 
                 
             </div>
@@ -44,9 +81,10 @@ $item = $result->fetch_assoc();
             <div class="sidebar">
             <a href="Marketplace.php"><button class="Marketplace">Home</button></a>
                 <a href="create_listing.php"><button class="CreateListing">Create Listing</button></a>
-                <a href="your_listing.php"><button class="YourListing">Your listings</button></a>
+      
                 <a href="inbox.php"><button class="Inboxside">Inbox</button></a>
-                <a href="enquirenow.php"><button class="Inboxside">Message</button></a>
+                <a href="enquirenow.php"><button class="Reviewsside">Message</button></a>
+           
                 <button onclick="myFunction()" class="Settingsside">Settings</button>
                 <div id="myPopup" class="popup">
                     <span>
@@ -54,7 +92,7 @@ $item = $result->fetch_assoc();
 <button class="websitepolicybutton" onclick="Websitepolicy()">Website Policy</button>
 
 <div id="websitepolicy" class="websitepolicy">
-   <span>
+    <span>
         <h1>Policies</h1>
         <br>
 
@@ -135,43 +173,32 @@ $item = $result->fetch_assoc();
 
 
             </div>
-            
-            <!-- Main Content with Listings 
-            
-    <div class="item-detail">
-      
-                -->
-                <div class="main-content">
-                <div class="container1">
-                <div class ="content1">
-                <div class = "maincontentbox1">
-            <h3><?php echo $item['title']; ?></h3><br>
-            <p><strong>Price:</strong> £<?php echo $item['price']; ?></p><br>
-            <p><strong>Description:</strong> <?php echo $item['description']; ?></p><br>
-            <p><strong>Seller:</strong> <?php echo $item['username']; ?></p>
-            </div>
-            </div>
-            <div class = "maincontentbox1">
-            <div class ="content2">
-            <img class = "maincontentimage" src="uploads/<?php echo $item['image']; ?>" alt="<?php echo $item['title'];  ?>">
-            </div>
-            </div>
-             
-            </div>
-            <div class="contentbar">
-                <div> <a href="enquirenow.php" class="enquirenow">Enquire now</a></div>
-                   
+
+            <!-- Main Content with Listings -->
+            <div class="main-content">
+                <div class="listings-container">
+                    <?php while ($row = $result->fetch_assoc()) { ?>
+                        <div class="listing-card">
+                            <img src="uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="Item Image">
+                            <h3><?php echo htmlspecialchars($row['title']); ?></h3>
+                            <p>£<?php echo htmlspecialchars($row['price']); ?></p>
+                            <p>Seller: <?php echo htmlspecialchars($row['username']); ?></p>
+                            <a href="item_details.php?id=<?php echo $row['item_id']; ?>" class="view-details">View Details</a>
+                            <form method="POST" action="your_listing.php" onsubmit="return confirm('Are you sure you want to remove this listing?');">
+                             <input type="hidden" name="item_id" value="<?php echo htmlspecialchars($row['item_id']); ?>">
+                             <button type="submit" class="remove-button">Remove Listing</button>
+                            </form>
+
+                        </div>
+                    <?php } ?>
                 </div>
-            </div>
-            </div>
+               
             </div>
 
             </div>
         </div>
     </div>
-
-    
-               <script>
+    <script>
                     // Toggle popup function
                   // Toggle popup function
 function myFunction() {
@@ -210,7 +237,7 @@ document.addEventListener('click', function(event) {
 
  
     function Darkmode() {
-        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image, .container1');
+        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image');
         var isDark = localStorage.getItem('theme') === 'dark';
 
         elements.forEach(function(element) {
@@ -226,7 +253,7 @@ document.addEventListener('click', function(event) {
     // Apply theme on page load
     window.onload = function() {
         var theme = localStorage.getItem('theme') || 'light'; // Default to light
-        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image, .container1');
+        var elements = document.querySelectorAll('.section-1, .section-2, .sidebar, .main-content, body, .listing-card, .listing-card p, .listing-card h3, .section-3, .Image');
 
         elements.forEach(function(element) {
             element.setAttribute('data-theme', theme);
@@ -239,4 +266,3 @@ document.addEventListener('click', function(event) {
 </script>
 </body>
 </html>
-
